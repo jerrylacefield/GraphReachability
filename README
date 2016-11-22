@@ -1,0 +1,59 @@
+=================================================================================
+Project Title:  Reachability
+Project Author: Jerry Lacefield
+
+Project Scope:  Given a source vertex, using vector-matrix multiplications and
+                Depth First Search, Reachability program will return all of the
+                reachable vertices.
+
+Phase History:
+=================================================================================
+PHASE 1
+   1.  Determine reachability from Source to Vertex using vector-matrix
+       multiplications and recursive Depth First Search.
+
+       Status:  In Progress
+
+   2.  Determine reachability from Source to Vertex using Depth First Search
+       using recusion and non-recursion calls
+
+       Status:  Phase 1 Completed
+       
+       Vector-Multiplication:
+	   * Sources are stored in a 1*n row vector and multiplied through
+             the (E)dges Adjacency Matrix a k-number of times.  Vertices that
+	     were reached are output in ascending order with no duplicates.
+
+       Depth-First Search:
+	   * Sources are stored in a 1*n row vector. Source values are 
+	     recursively passed to the DFS function that returns the order
+	     vertices in the order that they are reached based on adjacency
+	     to the source.
+
+	   * Initial Source value is stored as the first value in the output,
+             however, it may be reached again but will not show up in output
+	     as a duplicate vertice reached.
+==================================================================================       
+Execution Instructions:
+
+   1.  Compile program by typing @ bash prompt:
+       a) make reachability, or
+       b) g++ -std=c++11 -g makearray.cpp searchmethods.cpp reachability.cpp -o reachability
+
+   2.  Execute program reachability @ bash prompt:
+      
+       ./reachability "E=<file>;labels=<file>;result=<file>;source=<integer>;dfs=no|recursive|iterative;k=<integer>"
+
+      a) Order of parameters does not matter
+      b) labels file not required for Phase 1
+      c) dfs defaults to "no" if not provided
+      d) Replace <file> with a valid file name.
+	 1) Input files should be text format (*.txt)
+         2) Output file should be in output format (*.out)
+      d) Parameter Definitions
+	 1) E=<file> ... input file containing vertices and edges
+	 2) labels=<file> ... input file containing labels for hash table in Phase 2
+         3) result=<file> ... output file
+         4) source=<integer> ... integer value of initial source value
+         5) dfs=no|recursive|iterative ... if no option chose or left blank, defaults to Vector Multiplication
+         6) k=<integer> ... integer value of depth, relates to number of reachable vertices to obtain
